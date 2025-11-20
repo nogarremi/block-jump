@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3 uid="uid://gowpw1kfkylk"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_je3id"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_je3id")
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -228.5
+offset_right = 228.5
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Welcome to Block Jump!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+text = "Start Game"
+
+[node name="LevelScoreLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -44.0
+offset_right = 108.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TotalScoreLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -28.0
+offset_right = 108.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Leaderboard" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -247.5
+offset_right = 76.0
+offset_bottom = 247.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="ColorRect" parent="."]
+z_index = -2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -248.0
+offset_right = 224.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.396078, 0.27451, 0.839216, 1)
+
+[node name="LeaderboardName" type="LineEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter Name"
+max_length = 3
+
+[node name="NextLevelButton" type="Button" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+text = "Next Level"
+
+[node name="ControlsLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -127.0
+offset_right = 169.0
+grow_vertical = 0
+text = "⬅️ to move left
+➡️ to move right
+⬆️ to jump
+R to reset level
+Shift+R to reset game
+(Resetting only works if level is active)"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="text_submitted" from="LeaderboardName" to="." method="_on_leaderboard_name_text_submitted"]
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]
