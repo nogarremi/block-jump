@@ -2,7 +2,7 @@ extends Node
 
 @export var level: PackedScene
 var loaded_level
-var level_count
+var level_count = 1
 
 var start_time = 0
 var game_active = false
@@ -123,6 +123,12 @@ func game_over(body, event):
 
 func input_replay():
 	$HUD.show_level_replay()
+	pass
+
+func load_leaderboard():
+	pass
+
+func save_leaderboard():
 	pass
 
 func _on_playarea_body_exited(body: Node2D) -> void:
